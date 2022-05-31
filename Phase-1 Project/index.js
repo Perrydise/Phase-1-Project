@@ -14,3 +14,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+function cardCreator (drink){
+    // drink = {drinkName: margz, drinkIMG: *picture*.png}
+    const cardDiv = document.createElement("div");
+    const cardHeader = document.createElement("h2")
+    const cardImg = document.createElement("img")
+    const cardParagraph = document.createElement("p")
+    const cardLike = document.createElement("button")
+    const cardDislike = document.createElement("button")
+    cardHeader.innerText = drink.drinkName
+    cardImg.src = drink.drinkImg
+    cardParagraph.innerText = 0
+    cardLike.value = "Like"
+    cardDislike.value = "Dislike"
+    cardDiv.appendChild(cardHeader)
+    cardDiv.appendChild(cardImg)
+    cardDiv.appendChild(cardParagraph)
+    cardDiv.appendChild(cardLike)
+    cardDiv.appendChild(cardDislike)
+    return cardDiv
+}
+
