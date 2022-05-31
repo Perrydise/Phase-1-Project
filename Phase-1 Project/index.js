@@ -3,6 +3,8 @@ let addToy = false;
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
   const toyFormContainer = document.querySelector(".container");
+  const submitForm = document.getElementById("submitForm") 
+  submitForm.addEventListener("submit", cardSubmitter)
   addBtn.addEventListener("click", () => {
     // hide & seek with the form
     addToy = !addToy;
@@ -14,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function cardCreator (drink){
+function cardCreator (drink, event){
     // drink = {drinkName: margz, drinkIMG: *picture*.png}
     const cardDiv = document.createElement("div");
     const cardHeader = document.createElement("h2")
@@ -32,6 +34,11 @@ function cardCreator (drink){
     cardDiv.appendChild(cardParagraph)
     cardDiv.appendChild(cardLike)
     cardDiv.appendChild(cardDislike)
+    event.preventDefault();
     return cardDiv
 }
 
+function cardSubmitter(event){
+    event.preventDefault()
+    console.log("I was submitted")    
+}
