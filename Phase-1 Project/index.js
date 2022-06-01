@@ -63,6 +63,13 @@ function cardSubmitter(event){
     event.preventDefault()
     const submitForm = document.getElementById("submitForm")
    const drinkName = submitForm.querySelector('input[name="name"]').value
+   fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName).then((resp) => {
+   return resp.json()
+   }).then((data) => {
+    console.log(data.drinks)
+       findAndCreateDrinkCard(data.drinks)
+       
+   })
    const drinkImg = submitForm.querySelector('input[name="image"]').value
    const drinks = {drinkName: drinkName, drinkImg: drinkImg}
     console.log("I was submitted")
@@ -73,8 +80,18 @@ function cardSubmitter(event){
     container.appendChild(htmlDrink)    
 }
 
-function findDrink(filterType){
-    
+function findAndCreateDrinkCard(drinks, drinkName, drinkImg) {
+    drinks.forEach(element => {
+        
+    })
 }
+
+// function findDrink(filterType){
+//     if (filterType === "Liked"){
+//         return 
+//     }
+// }
+
+
 
 
