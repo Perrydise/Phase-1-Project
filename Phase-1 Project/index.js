@@ -3,7 +3,10 @@ let addToy = false;
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
   const toyFormContainer = document.querySelector(".container");
-  const submitForm = document.getElementById("submitForm") 
+  const submitForm = document.getElementById("submitForm")
+  const showAll = document.getElementById("Show your liked drinks")
+  const showDisliked = document.getElementById("Show your disliked drinks")
+  const showLiked = document.getElementById("Show all your drinks") 
   submitForm.addEventListener("submit", cardSubmitter)
   addBtn.addEventListener("click", () => {
     // hide & seek with the form
@@ -13,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       toyFormContainer.style.display = "none";
     }
+    showAll.addEventListener("click", () => {
+        console.log("I was clicked")
+    })
   });
 });
 
