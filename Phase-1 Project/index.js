@@ -26,11 +26,14 @@ function cardCreator (drink, event){
     const cardLike = document.createElement("button")
     cardLike.addEventListener("click", () => {
         cardParagraph.innerText = "You like this drink!"
-        cardDislike.style.visibility = "hidden"
+        cardLike.style.visibility = "hidden"
+        cardDislike.style.visibility = "visible"
     })
     const cardDislike = document.createElement("button")
     cardDislike.addEventListener("click", () => {
         cardParagraph.innerText = "You don't like this drink!"
+        cardDislike.style.visibility = "hidden"
+        cardLike.style.visibility = "visible"
     })
     cardHeader.innerText = drink.drinkName
     cardImg.src = drink.drinkImg
