@@ -4,22 +4,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
   const toyFormContainer = document.querySelector(".container");
   const submitForm = document.getElementById("submitForm")
-  const showAll = document.getElementById("Show your liked drinks")
-  const showDisliked = document.getElementById("Show your disliked drinks")
-  const showLiked = document.getElementById("Show all your drinks") 
+  const showAll = document.getElementById("showAll")
+  const showDisliked = document.getElementById("showDisliked")
+  const showLiked = document.getElementById("showLiked") 
   submitForm.addEventListener("submit", cardSubmitter)
   addBtn.addEventListener("click", () => {
-    // hide & seek with the form
     addToy = !addToy;
     if (addToy) {
       toyFormContainer.style.display = "block";
     } else {
       toyFormContainer.style.display = "none";
     }
+    })
     showAll.addEventListener("click", () => {
         console.log("I was clicked")
-    })
-  });
+    });
+    showLiked.addEventListener("click", () => {
+        console.log("I was clicked")
+    });
+  showDisliked.addEventListener("click", () => {
+    console.log("I was clicked")
+    });
 });
 
 function cardCreator (drink, event){
@@ -66,6 +71,10 @@ function cardSubmitter(event){
     console.log(htmlDrink)
     const container = document.getElementById("toy-collection")
     container.appendChild(htmlDrink)    
+}
+
+function findDrink(filterType){
+    
 }
 
 
