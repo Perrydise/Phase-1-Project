@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-function cardCreator (drink, event){
+function cardCreator (drink, verifiedDrinkObject){
     // drink = {drinkName: margz, drinkIMG: *picture*.png}
     const cardDiv = document.createElement("div")
     cardDiv.classList.add("card")
@@ -63,27 +63,28 @@ function cardSubmitter(event){
     event.preventDefault()
     const submitForm = document.getElementById("submitForm")
    const drinkName = submitForm.querySelector('input[name="name"]').value
+   const drinkImg = submitForm.querySelector('input[name="image"]').value   
    fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName).then((resp) => {
    return resp.json()
    }).then((data) => {
-    console.log(data.drinks)
-       findAndCreateDrinkCard(data.drinks)
-       
+    console.log(data)
+       findAndCreateDrinkCard(data.drinks, drinkName, drinkImg)       
    })
-   const drinkImg = submitForm.querySelector('input[name="image"]').value
-   const drinks = {drinkName: drinkName, drinkImg: drinkImg}
-    console.log("I was submitted")
-    console.log(drinks)
-    const htmlDrink = cardCreator(drinks)
-    console.log(htmlDrink)
-    const container = document.getElementById("toy-collection")
-    container.appendChild(htmlDrink)    
 }
 
 function findAndCreateDrinkCard(drinks, drinkName, drinkImg) {
-    drinks.forEach(element => {
-        
+    let verified;
+    if (drinks) { 
+    verified = drinks.find(element => {
+        return (drinkName.toUpperCase() === element.strDrink.toUpperCase())
     })
+}
+const drinkObject = {drinkName: drinkName, drinkImg: drinkImg}
+console.log("I was submitted")
+const htmlDrink = cardCreator(drinkObject)
+console.log(htmlDrink)
+const container = document.getElementById("toy-collection")
+container.appendChild(htmlDrink)    
 }
 
 // function findDrink(filterType){
