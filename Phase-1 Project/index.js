@@ -32,6 +32,7 @@ function cardCreator (drink, verifiedDrinkObject){
     const cardDiv = document.createElement("div")
     cardDiv.classList.add("card")
     const cardHeader = document.createElement("h2")
+    const verifiedCard = document.createElement("h3")
     const cardImg = document.createElement("img")
     const cardParagraph = document.createElement("p")
     const cardLike = document.createElement("button")
@@ -52,6 +53,10 @@ function cardCreator (drink, verifiedDrinkObject){
     cardLike.innerText = "Like"
     cardDislike.innerText = "Dislike"
     cardDiv.appendChild(cardHeader)
+    if(verifiedDrinkObject){
+        verifiedCard.innerText = "Verified"
+        cardDiv.appendChild(verifiedCard)
+    }
     cardDiv.appendChild(cardImg)
     cardDiv.appendChild(cardParagraph)
     cardDiv.appendChild(cardLike)
@@ -81,17 +86,17 @@ function findAndCreateDrinkCard(drinks, drinkName, drinkImg) {
 }
 const drinkObject = {drinkName: drinkName, drinkImg: drinkImg}
 console.log("I was submitted")
-const htmlDrink = cardCreator(drinkObject)
+const htmlDrink = cardCreator(drinkObject, verified)
 console.log(htmlDrink)
 const container = document.getElementById("toy-collection")
 container.appendChild(htmlDrink)    
 }
 
-// function findDrink(filterType){
-//     if (filterType === "Liked"){
-//         return 
-//     }
-// }
+function findDrink(filterType){
+    if (filterType === "Liked"){
+        return 
+    }
+}
 
 
 
