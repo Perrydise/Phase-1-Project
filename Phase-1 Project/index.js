@@ -4,9 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
   const toyFormContainer = document.querySelector(".container");
   const submitForm = document.getElementById("submitForm");
-  const showAll = document.getElementById("showAll");
-  const showDisliked = document.getElementById("showDisliked");
-  const showLiked = document.getElementById("showLiked");
   submitForm.addEventListener("submit", cardSubmitter);
   addBtn.addEventListener("click", () => {
     addToy = !addToy;
@@ -18,8 +15,25 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })
 
+function cardSubmitter(event) {
+    event.preventDefault();
+    const submitForm = document.getElementById("submitForm");
+    const drinkName = submitForm.querySelector('input[name="name"]').value;
+    const drinkImg = submitForm.querySelector('input[name="image"]').value;
+        if(drinkName === "" || drinkImg === ""){
+        alert("You are missing a required field!")
+        } else {
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName)
+      .then((resp) => {
+        return resp.json();
+      })
+      .then((data) => {
+        findAndCreateDrinkCard(data.drinks, drinkName, drinkImg);
+      });
+      }
+  }
+
 function cardCreator(drink, verifiedDrinkObject) {
-  // drink = {drinkName: margz, drinkIMG: *picture*.png}
   const cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
   const cardHeader = document.createElement("h2");
@@ -55,19 +69,7 @@ function cardCreator(drink, verifiedDrinkObject) {
   return cardDiv;
 }
 
-function cardSubmitter(event) {
-  event.preventDefault();
-  const submitForm = document.getElementById("submitForm");
-  const drinkName = submitForm.querySelector('input[name="name"]').value;
-  const drinkImg = submitForm.querySelector('input[name="image"]').value;
-  fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinkName)
-    .then((resp) => {
-      return resp.json();
-    })
-    .then((data) => {
-      findAndCreateDrinkCard(data.drinks, drinkName, drinkImg);
-    });
-}
+
 
 function findAndCreateDrinkCard(drinks, drinkName, drinkImg) {
   let verified;
