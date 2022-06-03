@@ -39,6 +39,7 @@ function cardCreator(drink, verifiedDrinkObject) {
   const cardHeader = document.createElement("h2");
   const verifiedCard = document.createElement("h3");
   const cardImg = document.createElement("img");
+  cardImg.classList.add("img-center")
   const cardParagraph = document.createElement("p");
   const cardLike = document.createElement("button");
   cardLike.addEventListener("click", () => {
@@ -54,7 +55,6 @@ function cardCreator(drink, verifiedDrinkObject) {
   });
   cardHeader.innerText = drink.drinkName;
   cardImg.src = drink.drinkImg;
-  cardParagraph.innerText = 0;
   cardLike.innerText = "Like";
   cardDislike.innerText = "Dislike";
   cardDiv.appendChild(cardHeader);
