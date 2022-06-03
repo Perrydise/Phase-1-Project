@@ -40,6 +40,8 @@ function cardCreator(drink, verifiedDrinkObject) {
   const verifiedCard = document.createElement("h3");
   const cardImg = document.createElement("img");
   cardImg.classList.add("img-center")
+  cardImg.width = "200"
+  cardImg.height = "150"
   const cardParagraph = document.createElement("p");
   const cardLike = document.createElement("button");
   cardLike.addEventListener("click", () => {
