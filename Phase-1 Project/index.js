@@ -62,6 +62,9 @@ function cardCreator(drink, verifiedDrinkObject) {
     verifiedCard.innerText = "Verified";
     cardDiv.appendChild(verifiedCard);
   }
+  if (verifiedDrinkObject && verifiedDrinkObject.strDrinkThumb){
+      cardImg.src = verifiedDrinkObject.strDrinkThumb
+  }
   cardDiv.appendChild(cardImg);
   cardDiv.appendChild(cardParagraph);
   cardDiv.appendChild(cardLike);
