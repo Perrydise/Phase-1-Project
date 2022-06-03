@@ -16,16 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toyFormContainer.style.display = "none";
     }
   });
-  showAll.addEventListener("click", () => {
-    console.log("I was clicked");
-  });
-  showLiked.addEventListener("click", () => {
-    console.log("I was clicked");
-  });
-  showDisliked.addEventListener("click", () => {
-    console.log("I was clicked");
-  });
-});
+})
 
 function cardCreator(drink, verifiedDrinkObject) {
   // drink = {drinkName: margz, drinkIMG: *picture*.png}
@@ -74,7 +65,6 @@ function cardSubmitter(event) {
       return resp.json();
     })
     .then((data) => {
-      console.log(data);
       findAndCreateDrinkCard(data.drinks, drinkName, drinkImg);
     });
 }
@@ -87,9 +77,7 @@ function findAndCreateDrinkCard(drinks, drinkName, drinkImg) {
     });
   }
   const drinkObject = { drinkName: drinkName, drinkImg: drinkImg };
-  console.log("I was submitted");
   const htmlDrink = cardCreator(drinkObject, verified);
-  console.log(htmlDrink);
   const container = document.getElementById("toy-collection");
   container.appendChild(htmlDrink);
 }
