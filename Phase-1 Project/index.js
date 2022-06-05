@@ -32,7 +32,7 @@ function cardSubmitter(event) {
       });
       }
   }
-//
+// cardCreator creates a element to push to the dom to display the card of the users inputted drink
 function cardCreator(drink, verifiedDrinkObject) {
   const cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
