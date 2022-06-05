@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 })
-//card
+//cardSubmitter verifies the users drink and allows the user to input data into the drink fields
 function cardSubmitter(event) {
     event.preventDefault();
     const submitForm = document.getElementById("submitForm");
@@ -32,7 +32,7 @@ function cardSubmitter(event) {
       });
       }
   }
-
+//
 function cardCreator(drink, verifiedDrinkObject) {
   const cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
