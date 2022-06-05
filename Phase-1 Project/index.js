@@ -73,9 +73,7 @@ function cardCreator(drink, verifiedDrinkObject) {
   cardDiv.appendChild(cardDislike);
   return cardDiv;
 }
-
-
-
+//findAndCreateDrinkCard allows the user to check if their drink is verified or not
 function findAndCreateDrinkCard(drinks, drinkName, drinkImg) {
   let verified;
   if (drinks) {
