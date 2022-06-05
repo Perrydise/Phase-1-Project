@@ -6,12 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitForm = document.getElementById("submitForm");
   submitForm.addEventListener("submit", cardSubmitter);
   addBtn.addEventListener("click", () => {
-    addToy = !addToy;
-    if (addToy) {
-      toyFormContainer.style.display = "block";
-    } else {
-      toyFormContainer.style.display = "none";
-    }
+    showFormHelper(toyFormContainer)
   });
 })
 //cardSubmitter verifies the users drink and allows the user to input data into the drink fields
@@ -93,3 +88,11 @@ function findAndCreateDrinkCard(drinks, drinkName, drinkImg) {
   container.appendChild(htmlDrink);
 }
 
+function showFormHelper(toyFormContainer){
+    addToy = !addToy;
+    if (addToy) {
+      toyFormContainer.style.display = "block";
+    } else {
+      toyFormContainer.style.display = "none";
+    }
+  };
