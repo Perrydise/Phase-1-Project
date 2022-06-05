@@ -9,7 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     showFormHelper(toyFormContainer);
   });
 });
-
+/**
+ * 
+ * @param {Object} event 
+ */
 function cardSubmitter(event) {
   event.preventDefault();
   const submitForm = document.getElementById("submitForm");
@@ -71,8 +74,12 @@ function cardCreator(drink, verifiedDrinkObject) {
   cardDiv.appendChild(cardLike);
   cardDiv.appendChild(cardDislike);
   return cardDiv;
-}
-
+}/**
+ * 
+ * @param {object} drinks 
+ * @param {*keyvalue} drinkName 
+ * @param {*keyvalue} drinkImg 
+ */
 function findAndCreateDrinkCard(drinks, drinkName, drinkImg) {
   let verified;
   if (drinks) {
@@ -85,7 +92,10 @@ function findAndCreateDrinkCard(drinks, drinkName, drinkImg) {
   const container = document.getElementById("toy-collection");
   container.appendChild(htmlDrink);
 }
-
+/**
+ * 
+ * @param {object} toyFormContainer 
+ */
 function showFormHelper(toyFormContainer) {
   addToy = !addToy;
   if (addToy) {
@@ -94,7 +104,13 @@ function showFormHelper(toyFormContainer) {
     toyFormContainer.style.display = "none";
   }
 }
-
+/**
+ * 
+ * @param {string} action 
+ * @param {HTMLElement} cardParagraph 
+ * @param {*HTMLElement} cardDislike 
+ * @param {*HTMLElement} cardLike 
+ */
 function buttonHelper(action, cardParagraph, cardDislike, cardLike) {
   if (action === "Like") {
     cardParagraph.innerText = "You like this drink!";
