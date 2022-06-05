@@ -1,5 +1,5 @@
 let addToy = false;
-
+//This function waits for the dom content to be loaded and then allows the user to access the buttons
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
   const toyFormContainer = document.querySelector(".container");
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 })
-
+//card
 function cardSubmitter(event) {
     event.preventDefault();
     const submitForm = document.getElementById("submitForm");
