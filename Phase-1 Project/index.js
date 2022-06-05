@@ -46,15 +46,11 @@ function cardCreator(drink, verifiedDrinkObject) {
   const cardParagraph = document.createElement("p");
   const cardLike = document.createElement("button");
   cardLike.addEventListener("click", () => {
-    cardParagraph.innerText = "You like this drink!";
-    cardLike.style.visibility = "hidden";
-    cardDislike.style.visibility = "visible";
+    buttonHelper("Like", cardParagraph, cardDislike, cardLike)
   });
   const cardDislike = document.createElement("button");
   cardDislike.addEventListener("click", () => {
-    cardParagraph.innerText = "You don't like this drink!";
-    cardDislike.style.visibility = "hidden";
-    cardLike.style.visibility = "visible";
+    buttonHelper("Dislike", cardParagraph, cardDislike, cardLike)
   });
   cardHeader.innerText = drink.drinkName;
   cardImg.src = drink.drinkImg;
@@ -96,3 +92,15 @@ function showFormHelper(toyFormContainer){
       toyFormContainer.style.display = "none";
     }
   };
+
+  function buttonHelper(action, cardParagraph, cardDislike, cardLike){
+    if(action === "Like"){
+    cardParagraph.innerText = "You like this drink!";
+    cardLike.style.visibility = "hidden";
+    cardDislike.style.visibility = "visible";
+    } else {
+    cardParagraph.innerText = "You don't like this drink!";
+    cardDislike.style.visibility = "hidden";
+    cardLike.style.visibility = "visible"; 
+    }
+  }
