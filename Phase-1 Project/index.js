@@ -33,6 +33,12 @@ function cardSubmitter(event) {
       }
   }
 // cardCreator creates a element to push to the dom to display the card of the users inputted drink
+/**
+ * 
+ * @param {Object} drink 
+ * @param {*Object} verifiedDrinkObject 
+ * @returns HTML element with drink card info
+ */
 function cardCreator(drink, verifiedDrinkObject) {
   const cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
@@ -86,3 +92,4 @@ function findAndCreateDrinkCard(drinks, drinkName, drinkImg) {
   const container = document.getElementById("toy-collection");
   container.appendChild(htmlDrink);
 }
+
