@@ -20,7 +20,7 @@ Flatiron academys lesson in phase-1 "Toy Tale" providing me with proper css layo
 
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) [2022] [Perry Jorss]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
